@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:freelance_app/screens/profile/profile_company.dart';
+import 'package:freelancing_hub/screens/profile/profile_company.dart';
 
 class CommentWidget extends StatefulWidget {
   final String commentId;

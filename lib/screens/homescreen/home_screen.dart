@@ -1,14 +1,13 @@
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
-import 'package:freelance_app/screens/activity/activity.dart';
+import 'package:freelancing_hub/screens/activity/activity.dart';
+import 'package:freelancing_hub/screens/homescreen/components/posted_jobs.dart';
+import 'package:freelancing_hub/screens/homescreen/sidebar.dart';
+import 'package:freelancing_hub/screens/profile/profile.dart';
+import 'package:freelancing_hub/screens/search/search_screen.dart';
+import 'package:freelancing_hub/utils/colors.dart';
+import 'package:freelancing_hub/widgets/bubble_bottom_bar.dart';
 
-import 'package:freelance_app/screens/homescreen/components/categories.dart';
-import 'package:freelance_app/screens/profile/profile.dart';
-import 'package:freelance_app/utils/colors.dart';
-import 'package:freelance_app/screens/homescreen/components/posted_jobs.dart';
-import 'package:freelance_app/screens/homescreen/sidebar.dart';
-import 'package:freelance_app/screens/search/search_screen.dart';
 import 'package:uuid/uuid.dart';
 
 import 'components/job_post.dart';
@@ -58,15 +57,15 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
   @override
   Widget build(BuildContext context) {
-    final _uid = user!.uid;
-    print(_uid);
+    final uid = user!.uid;
+    print(uid);
     return Scaffold(
       body: <Widget>[
         const Homepage(),
         const Search(),
         const JobsActivity(),
         ProfilePage(
-          userID: _uid,
+          userID: uid,
         ),
       ][currentIndex],
       floatingActionButton: currentIndex == 0 || currentIndex == 1
@@ -77,7 +76,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
                   context,
                   MaterialPageRoute(
                       builder: (_) => Upload(
-                            userID: _uid,
+                            userID: uid,
                           ) //const LoginScreen(),
                       ),
                 );
@@ -190,16 +189,16 @@ class _HomepageState extends State<Homepage> {
         title: const Padding(
           padding: EdgeInsets.only(left: 180),
           child: Text(
-            "getJOBS",
+            "Upwork",
             style: TextStyle(color: Colors.orange),
           ),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.only(left: 15, top: 20),
               child: Text(

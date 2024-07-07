@@ -2,11 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freelance_app/screens/homescreen/components/posted_jobs.dart';
-import 'package:freelance_app/screens/homescreen/home_screen.dart';
-import 'package:freelance_app/utils/global_methods.dart';
-import 'package:freelance_app/utils/global_variables.dart';
-import 'package:freelance_app/widgets/comments_widget.dart';
+import 'package:freelancing_hub/screens/homescreen/home_screen.dart';
+import 'package:freelancing_hub/utils/global_methods.dart';
+import 'package:freelancing_hub/utils/global_variables.dart';
+import 'package:freelancing_hub/widgets/comments_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 

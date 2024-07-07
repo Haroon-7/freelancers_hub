@@ -4,18 +4,6 @@ description: A new Flutter project.
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-# In Windows, build-name is used as the major, minor, and patch parts
-# of the product and file versions while build-number is used as the build suffix.
 version: 1.0.0+1
 
 environment:
@@ -31,20 +19,24 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
-  cloud_firestore: ^4.14.0
-  firebase_core: ^2.24.2
-  firebase_auth: ^4.16.0
+  cupertino_icons: ^1.0.8
+  cloud_firestore: any
+  firebase_core: any
+  firebase_auth: any
   provider: ^6.1.2
-  google_sign_in: ^6.1.6
-  fluttertoast: ^8.2.5
+  google_sign_in: any
+  fluttertoast: any
   intl: ^0.19.0
-  image_cropper: ^5.0.1
-  image_picker: ^1.0.8
-  url_launcher: ^6.2.4
+  image_cropper: any
+  image_picker: any
   fluttericon: ^2.0.0
-  uuid: ^4.2.2
-  bubble_bottom_bar: ^2.0.0
+  uuid: any
+  # introduction_screen: any
+  # collection: any
+  firebase_storage: any
+  meta: any
+  url_launcher: any
+  web: any
   introduction_screen: ^3.1.12
 
 dev_dependencies:

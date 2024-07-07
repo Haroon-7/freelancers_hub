@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:freelancing_hub/widgets/custom_button.dart';
+import 'package:freelancing_hub/widgets/custom_textfield.dart';
 
-import 'package:freelance_app/widgets/custom_textfield.dart';
-import 'package:freelance_app/widgets/custom_button.dart';
+
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);

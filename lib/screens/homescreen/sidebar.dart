@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:freelance_app/screens/activity/activity.dart';
-import 'package:freelance_app/utils/colors.dart';
+import 'package:freelancing_hub/screens/activity/activity.dart';
+import 'package:freelancing_hub/utils/colors.dart';
+
 import '../../screens/activity/Activity_jobs_posted.dart';
 import '../../config/user_state.dart';
 
@@ -20,13 +21,13 @@ class AboutUS extends StatelessWidget {
         title: const Padding(
           padding: EdgeInsets.only(left: 180),
           child: Text(
-            "getJOBS",
+            "Upwork",
             style: TextStyle(color: Colors.orange),
           ),
         ),
       ),
-      body: Column(
-        children: const [
+      body: const Column(
+        children: [
           SizedBox(
             height: 5,
           ),

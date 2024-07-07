@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
-import 'package:freelance_app/config/user_state.dart';
-import 'package:freelance_app/utils/global_variables.dart';
+import 'package:freelancing_hub/config/user_state.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatefulWidget {
   final String userID;
 
-  const ProfilePage({required this.userID});
+  const ProfilePage({super.key, required this.userID});
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -46,12 +46,11 @@ class _ProfilePageState extends State<ProfilePage> {
           joinedAt = '${joinedDate.year}-${joinedDate.month}-${joinedDate.day}';
         });
         User? user = _auth.currentUser;
-        final _uid = user!.uid;
+        final uid = user!.uid;
         setState(() {
-          _isSameUser = _uid == widget.userID;
+          _isSameUser = uid == widget.userID;
         });
       }
-    } catch (eror) {
     } finally {
       _isLoading = false;
     }
@@ -76,7 +75,7 @@ class _ProfilePageState extends State<ProfilePage> {
         title: const Padding(
           padding: EdgeInsets.only(left: 180),
           child: Text(
-            "getJOBS",
+            "Upwork",
             style: TextStyle(color: Colors.orange),
           ),
         ),
@@ -91,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       Card(
                         color: Colors.white10,
-                        margin: EdgeInsets.all(30),
+                        margin: const EdgeInsets.all(30),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -121,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 30,
                               ),
                               const Padding(
-                                padding: const EdgeInsets.all(10.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Text(
                                   'Freelancer Information :',
                                   style: TextStyle(
@@ -199,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               context,
                                               MaterialPageRoute(
                                                 builder: (context) =>
-                                                    UserState(),
+                                                    const UserState(),
                                               ),
                                             );
                                           },
@@ -208,14 +207,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(13)),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(
+                                          child: const Padding(
+                                            padding: EdgeInsets.symmetric(
                                                 vertical: 14),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
-                                              children: const [
+                                              children: [
                                                 Text(
                                                   'Logout',
                                                   style: TextStyle(
@@ -248,7 +247,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             width: size.width * 0.26,
                             height: size.width * 0.26,
                             decoration: BoxDecoration(
-                              color: Color(0xff044404),
+                              color: const Color(0xff044404),
                               shape: BoxShape.circle,
                               border: Border.all(
                                 width: 8,
@@ -326,7 +325,7 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             content,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         ),
       ],

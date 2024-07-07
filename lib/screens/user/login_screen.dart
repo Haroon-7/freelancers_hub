@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:freelance_app/screens/homescreen/home_screen.dart';
-import 'package:freelance_app/screens/user/signup_screen.dart';
-import 'package:freelance_app/widgets/custom_textfield.dart';
-import 'package:flutter/material.dart';
 
-import 'package:freelance_app/config/firebase_auth_service.dart';
-import 'package:freelance_app/widgets/custom_button.dart';
-import 'package:freelance_app/screens/user/forgot_password.dart';
+import 'package:flutter/material.dart';
+import 'package:freelancing_hub/config/firebase_auth_service.dart';
+import 'package:freelancing_hub/screens/homescreen/home_screen.dart';
+import 'package:freelancing_hub/screens/user/forgot_password.dart';
+import 'package:freelancing_hub/screens/user/signup_screen.dart';
+import 'package:freelancing_hub/widgets/custom_button.dart';
+import 'package:freelancing_hub/widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
           title: const Padding(
             padding: EdgeInsets.only(left: 230),
             child: Text(
-              "getJOBS",
+              "Upwork",
               style: TextStyle(color: Colors.orange),
             ),
           ),
@@ -140,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SignUpScreen()));
+                                                    const SignUpScreen()));
                                       },
                                     )
                                   ]));

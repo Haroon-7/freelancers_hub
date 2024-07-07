@@ -1,12 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
-import 'package:freelance_app/utils/global_variables.dart';
-
-import 'package:freelance_app/utils/layout.dart';
-import 'package:freelance_app/utils/txt.dart';
-import 'package:freelance_app/utils/clr.dart';
-import 'package:freelance_app/widgets/job_tile.dart';
+import 'package:freelancing_hub/utils/global_variables.dart';
+import 'package:freelancing_hub/utils/layout.dart';
+import 'package:freelancing_hub/utils/txt.dart';
+import 'package:freelancing_hub/utils/clr.dart';
+import 'package:freelancing_hub/widgets/job_tile.dart';
 
 class Postedjob extends StatefulWidget {
   const Postedjob({super.key});

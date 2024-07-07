@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freelance_app/screens/activity/applicant-card.dart';
+import 'package:freelancing_hub/screens/activity/applicant-card.dart';
 import 'jobs-card.dart';
-import 'package:freelance_app/utils/layout.dart';
-import 'package:freelance_app/utils/txt.dart';
-import 'package:freelance_app/utils/clr.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,7 +52,7 @@ class _ApplicantsAppState extends State<ApplicantsApp> {
         title: const Padding(
           padding: EdgeInsets.only(left: 180),
           child: Text(
-            "getJOBS",
+            "Upwork",
             style: TextStyle(color: Colors.orange),
           ),
         ),
@@ -78,7 +75,7 @@ class _ApplicantsAppState extends State<ApplicantsApp> {
               }
               return ListView.separated(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return Applicant(
                       name: snapshot.data!['applicantsList'][index]['name'],

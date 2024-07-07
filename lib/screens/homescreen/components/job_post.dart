@@ -2,8 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freelancing_hub/utils/global_methods.dart';
 import 'package:freelancing_hub/utils/global_variables.dart';
 import 'package:freelancing_hub/utils/layout.dart';
+import 'package:freelancing_hub/utils/txt.dart';
+import 'package:freelancing_hub/utils/clr.dart';
 import 'package:uuid/uuid.dart';
 
 class Upload extends StatefulWidget {
@@ -68,7 +71,7 @@ class _UploadState extends State<Upload> {
             title: const Padding(
               padding: EdgeInsets.only(left: 180),
               child: Text(
-                "getJOBS",
+                "Upwork",
                 style: TextStyle(color: Colors.orange),
               ),
             ),
@@ -334,12 +337,12 @@ class _UploadState extends State<Upload> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(layout.radius),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(layout.padding * 0.75),
+      child: const Padding(
+        padding: EdgeInsets.all(layout.padding * 0.75),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 'Upload Job   ',
                 style: txt.button,

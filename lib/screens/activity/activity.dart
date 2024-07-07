@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:freelance_app/screens/homescreen/sidebar.dart';
+import 'package:freelancing_hub/screens/homescreen/sidebar.dart';
 import 'Activity_jobs_posted.dart';
 import 'activity_jobs_taken.dart';
 
@@ -26,7 +26,7 @@ class _JobsActivityState extends State<JobsActivity> {
           title: const Padding(
             padding: EdgeInsets.only(left: 180),
             child: Text(
-              "getJOBS",
+              "Upwork",
               style: TextStyle(color: Colors.orange),
             ),
           ),

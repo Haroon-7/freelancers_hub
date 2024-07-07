@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freelance_app/screens/user/login_screen.dart';
-import 'package:freelance_app/screens/user/signup_screen.dart';
+import 'package:freelancing_hub/screens/user/login_screen.dart';
+import 'package:freelancing_hub/screens/user/signup_screen.dart';
 
 import '../widgets/custom_button.dart';
 
@@ -28,7 +28,8 @@ class WelcomeScreen extends StatelessWidget {
               height: 130,
               //width: 180,
               child: Image(
-                  image: AssetImage("assets/images/logo.png"),
+                  image:
+                      AssetImage("assets/images/up_logo-removebg-preview.png"),
                   fit: BoxFit.fill),
             ),
             const SizedBox(height: 20),
@@ -62,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
-                "getJOBS get the job done!",
+                "Upwork Join Freelancer Plus!",
                 style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 20,

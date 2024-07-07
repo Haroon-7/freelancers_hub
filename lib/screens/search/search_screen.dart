@@ -1,5 +1,5 @@
-import "package:flutter/material.dart";
-import 'package:freelance_app/utils/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:freelancing_hub/utils/colors.dart';
 
 import '../homescreen/sidebar.dart';
 
@@ -47,92 +47,93 @@ class _SearchState extends State<Search> {
           elevation: 0,
           backgroundColor: white,
           iconTheme: const IconThemeData(
-            color: Colors.orange,
+            color: Colors.red,
           ),
           title: const Padding(
             padding: EdgeInsets.only(left: 180),
             child: Text(
-              "getJOBS",
+              "Upwork",
               style: TextStyle(color: Colors.orange),
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 30.0, top: 40),
-                child: Text("Search For A Job",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: black)),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: TextField(
-                  onChanged: (value) => Updatelist(value),
-                  style: TextStyle(color: yellow),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none),
-                    hintText: "Flutter development",
-                    prefixIcon: const Icon(Icons.search),
-                    prefixIconColor: Color.fromRGBO(245, 186, 65, 1),
-                    suffixIcon: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.orange,
-                        //fixedSize: const Size.fromWidth(100),
-                        padding: const EdgeInsets.all(22),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 30.0, top: 40),
+                  child: Text("Search For A Job",
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: black)),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: TextField(
+                    onChanged: (value) => Updatelist(value),
+                    style: const TextStyle(color: yellow),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide.none),
+                      hintText: "Flutter development",
+                      prefixIcon: const Icon(Icons.search),
+                      prefixIconColor: const Color.fromRGBO(245, 186, 65, 1),
+                      suffixIcon: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.orange,
+                          //fixedSize: const Size.fromWidth(100),
+                          padding: const EdgeInsets.all(22),
+                        ),
+                        onPressed: () {},
+                        child: const Icon(Icons.search),
                       ),
-                      onPressed: () {},
-                      child: const Icon(Icons.search),
+                      suffixIconColor: yellow,
                     ),
-                    suffixIconColor: yellow,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              SizedBox(
-                height: 200,
-                child: display_list.isEmpty
-                    ? const Center(
-                        child: Text("No result found",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            )))
-                    : ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: display_list.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return ListTile(
-                            title: Text('${display_list[index].job_title!}',
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            subtitle:
-                                Text('${display_list[index].company_name!}',
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                    )),
-                          );
-                        },
-                      ),
-              )
-            ],
+                const SizedBox(
+                  height: 10.0,
+                ),
+                SizedBox(
+                  height: 200,
+                  child: display_list.isEmpty
+                      ? const Center(
+                          child: Text("No result found",
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              )))
+                      : ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: display_list.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ListTile(
+                              title: Text(display_list[index].job_title!,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              subtitle: Text(display_list[index].company_name!,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                  )),
+                            );
+                          },
+                        ),
+                )
+              ],
+            ),
           ),
         ));
   }

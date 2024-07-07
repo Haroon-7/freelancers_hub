@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freelancing_hub/screens/homescreen/components/job_details.dart';
+import 'package:freelancing_hub/utils/global_methods.dart';
 
 import '../utils/clr.dart';
 import '../utils/layout.dart';

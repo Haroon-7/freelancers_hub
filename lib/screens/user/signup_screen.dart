@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
@@ -10,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:freelancing_hub/utils/layout.dart';
 import 'package:freelancing_hub/utils/txt.dart';
 import 'package:freelancing_hub/utils/clr.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -100,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen>
           title: const Padding(
             padding: EdgeInsets.only(left: 180),
             child: Text(
-              "getJOBS",
+              "Upwork",
               style: TextStyle(color: Colors.orange),
             ),
           ),
@@ -607,32 +607,64 @@ class _SignUpScreenState extends State<SignUpScreen>
     );
   }
 
+  final picker = ImagePicker();
   void _getFromCamera() async {
-    XFile? pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.camera);
-    _cropImage(pickedFile!.path);
+    final pickedFile = await picker.pickImage(
+      source: ImageSource.camera,
+      imageQuality: 50,
+      maxHeight: 500,
+      maxWidth: 500,
+    );
+    if (pickedFile != null) {
+      CroppedFile? croppedFile = await _cropImage(File(pickedFile.path));
+      if (croppedFile != null) {
+        setState(() {
+          imageFile = File(croppedFile.path);
+        });
+      }
+    }
     Navigator.pop(context);
   }
 
   void _getFromGallery() async {
-    XFile? pickedFile =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    _cropImage(pickedFile!.path);
+    final pickedFile = await picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+      maxHeight: 500,
+      maxWidth: 500,
+    );
+    if (pickedFile != null) {
+      CroppedFile? croppedFile = await _cropImage(File(pickedFile.path));
+      if (croppedFile != null) {
+        setState(() {
+          imageFile = File(croppedFile.path);
+        });
+      }
+    }
     Navigator.pop(context);
   }
 
-  void _cropImage(filePath) async {
-    CroppedFile? croppedImage = await ImageCropper().cropImage(
-      sourcePath: filePath,
-      maxHeight: 1080,
-      maxWidth: 1080,
+  Future<CroppedFile?> _cropImage(File imageFile) async {
+    CroppedFile? croppedFile = await ImageCropper().cropImage(
+      compressFormat: ImageCompressFormat.jpg,
+      compressQuality: 100,
+      sourcePath: imageFile.path,
+      aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+      cropStyle: CropStyle.circle,
+      uiSettings: [
+        AndroidUiSettings(
+          toolbarTitle: 'Crop Image',
+          toolbarColor: Theme.of(context).primaryColor,
+          toolbarWidgetColor: Colors.white,
+          initAspectRatio: CropAspectRatioPreset.square,
+          lockAspectRatio: true,
+        ),
+        IOSUiSettings(
+          title: 'Crop Image',
+          aspectRatioLockEnabled: true,
+        ),
+      ],
     );
-    if (croppedImage != null) {
-      setState(
-        () {
-          imageFile = File(croppedImage.path);
-        },
-      );
-    }
+    return croppedFile;
   }
 }

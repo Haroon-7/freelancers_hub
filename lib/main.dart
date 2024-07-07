@@ -1,11 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'config/user_state.dart';
-import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp();
+  } catch (e) {
+    print(e);
+  }
   runApp(MyApp());
 }
 
@@ -55,7 +58,7 @@ class MyApp extends StatelessWidget {
         } else {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'getJOBS',
+            title: 'Upwork',
             theme: ThemeData(
               scaffoldBackgroundColor: Colors.white,
               primarySwatch: Colors.blue,
